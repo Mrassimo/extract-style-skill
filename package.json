@@ -32,7 +32,7 @@
     "collectCoverageFrom": [
       "scripts/**/*.js",
       "claude-skill.js",
-      "!scripts/phase-1-extraction.js", // Integration tests would be needed for these
+      "!scripts/phase-1-extraction.js",
       "!scripts/phase-2-analysis.js",
       "!scripts/phase-3-refinement.js",
       "!scripts/extract-style-orchestrator.js"
