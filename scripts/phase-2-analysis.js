@@ -163,18 +163,24 @@ class Phase2Analysis {
 
     Object.entries(colors).forEach(([color, data]) => {
       // Count formats
-      colorAnalysis.formats[data.format]++;
+      if (data.format && colorAnalysis.formats[data.format] !== undefined) {
+        colorAnalysis.formats[data.format]++;
+      }
 
-      // Count usage
-      data.usage.forEach(usage => {
-        if (colorAnalysis.usage[usage] !== undefined) {
-          colorAnalysis.usage[usage]++;
-        }
-      });
+      // Count usage - ensure usage is an array
+      if (data.usage && Array.isArray(data.usage)) {
+        data.usage.forEach(usage => {
+          if (colorAnalysis.usage[usage] !== undefined) {
+            colorAnalysis.usage[usage]++;
+          }
+        });
+      }
 
       // Categorize colors
       const category = this.categorizeColor(color, data);
-      colorAnalysis.categories[category].push(color);
+      if (colorAnalysis.categories[category]) {
+        colorAnalysis.categories[category].push(color);
+      }
     });
 
     return colorAnalysis;

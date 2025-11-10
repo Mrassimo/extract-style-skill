@@ -559,25 +559,31 @@ class ComponentDetector {
     let css = '';
 
     // Generate base component styles
-    components.all.forEach(component => {
-      css += `/* ${component.type.charAt(0).toUpperCase() + component.type.slice(1)} Component */\n`;
-      css += `${component.selector} {\n`;
+    if (components.all && Array.isArray(components.all)) {
+      components.all.forEach(component => {
+        css += `/* ${component.type.charAt(0).toUpperCase() + component.type.slice(1)} Component */\n`;
+        css += `${component.selector || '.component'} {\n`;
 
-      Object.entries(component.styles).forEach(([property, value]) => {
-        css += `  ${property}: ${value};\n`;
-      });
+        if (component.styles) {
+          Object.entries(component.styles).forEach(([property, value]) => {
+            css += `  ${property}: ${value};\n`;
+          });
+        }
 
-      css += '}\n\n';
-
-      // Add state styles
-      Object.entries(component.states).forEach(([state, styles]) => {
-        css += `${component.selector}:${state} {\n`;
-        Object.entries(styles).forEach(([property, value]) => {
-          css += `  ${property}: ${value};\n`;
-        });
         css += '}\n\n';
+
+        // Add state styles
+        if (component.states) {
+          Object.entries(component.states).forEach(([state, styles]) => {
+            css += `${component.selector || '.component'}:${state} {\n`;
+            Object.entries(styles).forEach(([property, value]) => {
+              css += `  ${property}: ${value};\n`;
+            });
+            css += '}\n\n';
+          });
+        }
       });
-    });
+    }
 
     return css;
   }
