@@ -704,11 +704,17 @@ class Phase2Analysis {
   generateComponentDemo(components) {
     let html = '';
 
-    Object.entries(components.patterns).forEach(([type, patterns]) => {
-      if (patterns.length > 0) {
+    // Handle both patterns object formats
+    const patterns = components.patterns || components;
+    if (!patterns) {
+      return '<p>No component patterns available</p>';
+    }
+
+    Object.entries(patterns).forEach(([type, typePatterns]) => {
+      if (typePatterns && typePatterns.length > 0) {
         html += `<h3>${type.charAt(0).toUpperCase() + type.slice(1)}</h3>`;
 
-        patterns.forEach(pattern => {
+        typePatterns.forEach(pattern => {
           html += `<div class="demo-card">
             <p><strong>${pattern.selector}</strong></p>`;
 
