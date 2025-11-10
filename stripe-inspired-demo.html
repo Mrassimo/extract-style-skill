@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stripe-Inspired Design System</title>
+  <style>
+    /*
+     * Stripe-Inspired Design System
+     * Based on Stripe's beautiful, minimal aesthetic
+     */
+
+    :root {
+      /* Primary Colors - Stripe Purple/Blue */
+      --color-primary: #635bff;
+      --color-primary-dark: #0a2540;
+      --color-primary-light: #7a73ff;
+
+      /* Accent Colors */
+      --color-accent-blue: #00d4ff;
+      --color-accent-green: #00d924;
+      --color-accent-purple: #a15eff;
+
+      /* Neutral Colors */
+      --color-background: #ffffff;
+      --color-background-subtle: #f6f9fc;
+      --color-background-strong: #0a2540;
+      --color-text: #0a2540;
+      --color-text-secondary: #425466;
+      --color-text-tertiary: #8898aa;
+      --color-border: #e3e8ee;
+
+      /* Typography Scale */
+      --font-family-base: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      --font-family-mono: 'SFMono-Regular', 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', 'Fira Mono', 'Roboto Mono', Courier, monospace;
+
+      --font-size-xs: 0.75rem;      /* 12px */
+      --font-size-sm: 0.875rem;     /* 14px */
+      --font-size-base: 1rem;       /* 16px */
+      --font-size-lg: 1.125rem;     /* 18px */
+      --font-size-xl: 1.25rem;      /* 20px */
+      --font-size-2xl: 1.5rem;      /* 24px */
+      --font-size-3xl: 1.875rem;    /* 30px */
+      --font-size-4xl: 2.25rem;     /* 36px */
+      --font-size-5xl: 3rem;        /* 48px */
+      --font-size-6xl: 3.75rem;     /* 60px */
+
+      --font-weight-normal: 400;
+      --font-weight-medium: 500;
+      --font-weight-semibold: 600;
+      --font-weight-bold: 700;
+
+      --line-height-tight: 1.2;
+      --line-height-normal: 1.5;
+      --line-height-relaxed: 1.75;
+
+      /* Spacing Scale */
+      --space-1: 0.25rem;   /* 4px */
+      --space-2: 0.5rem;    /* 8px */
+      --space-3: 0.75rem;   /* 12px */
+      --space-4: 1rem;      /* 16px */
+      --space-5: 1.25rem;   /* 20px */
+      --space-6: 1.5rem;    /* 24px */
+      --space-8: 2rem;      /* 32px */
+      --space-10: 2.5rem;   /* 40px */
+      --space-12: 3rem;     /* 48px */
+      --space-16: 4rem;     /* 64px */
+      --space-20: 5rem;     /* 80px */
+      --space-24: 6rem;     /* 96px */
+
+      /* Border Radius */
+      --radius-sm: 0.25rem;   /* 4px */
+      --radius-base: 0.375rem; /* 6px */
+      --radius-md: 0.5rem;    /* 8px */
+      --radius-lg: 0.75rem;   /* 12px */
+      --radius-xl: 1rem;      /* 16px */
+      --radius-full: 9999px;
+
+      /* Shadows - Stripe's signature elevations */
+      --shadow-xs: 0 1px 2px 0 rgba(10, 37, 64, 0.05);
+      --shadow-sm: 0 1px 3px 0 rgba(10, 37, 64, 0.08);
+      --shadow-base: 0 4px 6px -1px rgba(10, 37, 64, 0.08), 0 2px 4px -1px rgba(10, 37, 64, 0.04);
+      --shadow-md: 0 10px 15px -3px rgba(10, 37, 64, 0.08), 0 4px 6px -2px rgba(10, 37, 64, 0.04);
+      --shadow-lg: 0 20px 25px -5px rgba(10, 37, 64, 0.08), 0 10px 10px -5px rgba(10, 37, 64, 0.02);
+      --shadow-xl: 0 25px 50px -12px rgba(10, 37, 64, 0.15);
+
+      /* Transitions */
+      --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+      --transition-base: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+      --transition-slow: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--font-family-base);
+      font-size: var(--font-size-base);
+      line-height: var(--line-height-normal);
+      color: var(--color-text);
+      background: var(--color-background);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Typography */
+    h1, h2, h3, h4, h5, h6 {
+      font-weight: var(--font-weight-semibold);
+      line-height: var(--line-height-tight);
+      color: var(--color-text);
+    }
+
+    h1 {
+      font-size: var(--font-size-6xl);
+      font-weight: var(--font-weight-bold);
+      letter-spacing: -0.02em;
+    }
+
+    h2 {
+      font-size: var(--font-size-4xl);
+      letter-spacing: -0.01em;
+    }
+
+    h3 {
+      font-size: var(--font-size-2xl);
+    }
+
+    p {
+      color: var(--color-text-secondary);
+      line-height: var(--line-height-relaxed);
+    }
+
+    code {
+      font-family: var(--font-family-mono);
+      font-size: 0.875em;
+      background: var(--color-background-subtle);
+      padding: var(--space-1) var(--space-2);
+      border-radius: var(--radius-sm);
+    }
+
+    /* Buttons - Stripe's signature style */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-2);
+      padding: var(--space-3) var(--space-6);
+      font-size: var(--font-size-base);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+      border-radius: var(--radius-base);
+      border: none;
+      cursor: pointer;
+      transition: all var(--transition-base);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: var(--color-primary);
+      color: white;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .btn-primary:hover {
+      background: var(--color-primary-light);
+      box-shadow: var(--shadow-md);
+      transform: translateY(-1px);
+    }
+
+    .btn-primary:active {
+      transform: translateY(0);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .btn-secondary {
+      background: white;
+      color: var(--color-text);
+      border: 1px solid var(--color-border);
+      box-shadow: var(--shadow-xs);
+    }
+
+    .btn-secondary:hover {
+      background: var(--color-background-subtle);
+      border-color: var(--color-text-tertiary);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--color-text-secondary);
+    }
+
+    .btn-ghost:hover {
+      background: var(--color-background-subtle);
+      color: var(--color-text);
+    }
+
+    .btn-large {
+      padding: var(--space-4) var(--space-8);
+      font-size: var(--font-size-lg);
+    }
+
+    /* Cards */
+    .card {
+      background: white;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-6);
+      box-shadow: var(--shadow-sm);
+      transition: all var(--transition-base);
+    }
+
+    .card:hover {
+      box-shadow: var(--shadow-md);
+      border-color: var(--color-text-tertiary);
+    }
+
+    .card-elevated {
+      border: none;
+      box-shadow: var(--shadow-lg);
+    }
+
+    /* Inputs */
+    .input {
+      width: 100%;
+      padding: var(--space-3) var(--space-4);
+      font-size: var(--font-size-base);
+      font-family: var(--font-family-base);
+      color: var(--color-text);
+      background: white;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-base);
+      transition: all var(--transition-base);
+    }
+
+    .input:focus {
+      outline: none;
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 3px rgba(99, 91, 255, 0.1);
+    }
+
+    .input::placeholder {
+      color: var(--color-text-tertiary);
+    }
+
+    /* Badges */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: var(--space-1) var(--space-3);
+      font-size: var(--font-size-xs);
+      font-weight: var(--font-weight-medium);
+      border-radius: var(--radius-full);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .badge-primary {
+      background: rgba(99, 91, 255, 0.1);
+      color: var(--color-primary);
+    }
+
+    .badge-success {
+      background: rgba(0, 217, 36, 0.1);
+      color: var(--color-accent-green);
+    }
+
+    /* Navigation */
+    .nav {
+      display: flex;
+      gap: var(--space-2);
+      padding: var(--space-4);
+      background: white;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .nav-link {
+      padding: var(--space-2) var(--space-4);
+      color: var(--color-text-secondary);
+      text-decoration: none;
+      border-radius: var(--radius-base);
+      transition: all var(--transition-fast);
+      font-weight: var(--font-weight-medium);
+    }
+
+    .nav-link:hover {
+      background: var(--color-background-subtle);
+      color: var(--color-text);
+    }
+
+    .nav-link.active {
+      background: var(--color-primary);
+      color: white;
+    }
+
+    /* Layout */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: var(--space-8) var(--space-6);
+    }
+
+    .section {
+      padding: var(--space-20) 0;
+    }
+
+    .grid {
+      display: grid;
+      gap: var(--space-6);
+    }
+
+    .grid-2 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .grid-3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    /* Hero Section - Stripe Style */
+    .hero {
+      background: linear-gradient(135deg, #0a2540 0%, #1a365d 100%);
+      color: white;
+      padding: var(--space-24) var(--space-6);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background:
+        radial-gradient(circle at 20% 50%, rgba(99, 91, 255, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(0, 212, 255, 0.15) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero h1 {
+      color: white;
+      margin-bottom: var(--space-6);
+    }
+
+    .hero p {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: var(--font-size-xl);
+      max-width: 600px;
+      margin: 0 auto var(--space-8);
+    }
+
+    /* Feature Grid */
+    .feature {
+      text-align: center;
+      padding: var(--space-6);
+    }
+
+    .feature-icon {
+      width: 48px;
+      height: 48px;
+      margin: 0 auto var(--space-4);
+      background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent-purple) 100%);
+      border-radius: var(--radius-lg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: var(--font-size-2xl);
+    }
+
+    .feature h3 {
+      margin-bottom: var(--space-3);
+    }
+
+    /* Code Block */
+    .code-block {
+      background: var(--color-background-strong);
+      color: var(--color-accent-blue);
+      padding: var(--space-6);
+      border-radius: var(--radius-lg);
+      font-family: var(--font-family-mono);
+      font-size: var(--font-size-sm);
+      overflow-x: auto;
+      box-shadow: var(--shadow-xl);
+    }
+
+    /* Utilities */
+    .text-center {
+      text-align: center;
+    }
+
+    .mb-4 {
+      margin-bottom: var(--space-4);
+    }
+
+    .mb-6 {
+      margin-bottom: var(--space-6);
+    }
+
+    .mb-8 {
+      margin-bottom: var(--space-8);
+    }
+
+    .mt-8 {
+      margin-top: var(--space-8);
+    }
+
+    @media (max-width: 768px) {
+      .grid-2,
+      .grid-3 {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: var(--font-size-4xl);
+      }
+
+      .hero {
+        padding: var(--space-16) var(--space-4);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="nav">
+    <a href="#" class="nav-link active">Home</a>
+    <a href="#" class="nav-link">Products</a>
+    <a href="#" class="nav-link">Developers</a>
+    <a href="#" class="nav-link">Company</a>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="badge badge-primary mb-4">New Feature</div>
+      <h1>Financial infrastructure<br>for the internet</h1>
+      <p>Millions of businesses of all sizes use Stripe to accept payments, send payouts, and manage their businesses online.</p>
+      <div class="mt-8">
+        <button class="btn btn-primary btn-large">Start now →</button>
+        <button class="btn btn-secondary btn-large">Contact sales</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="section">
+    <div class="container">
+      <div class="text-center mb-8">
+        <h2>A complete payments platform</h2>
+        <p style="font-size: var(--font-size-lg); margin-top: var(--space-4);">
+          Everything you need to accept payments and scale globally
+        </p>
+      </div>
+
+      <div class="grid grid-3">
+        <div class="card feature">
+          <div class="feature-icon">⚡</div>
+          <h3>Fast integration</h3>
+          <p>Get up and running in minutes with our pre-built UI components and comprehensive APIs.</p>
+        </div>
+
+        <div class="card feature">
+          <div class="feature-icon">🌍</div>
+          <h3>Global scale</h3>
+          <p>Support for 135+ currencies and payment methods used by customers worldwide.</p>
+        </div>
+
+        <div class="card feature">
+          <div class="feature-icon">🔒</div>
+          <h3>Secure by default</h3>
+          <p>Industry-leading security and compliance certified to the highest standards.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Code Example -->
+  <section class="section" style="background: var(--color-background-subtle);">
+    <div class="container">
+      <div class="grid grid-2" style="align-items: center; gap: var(--space-12);">
+        <div>
+          <div class="badge badge-success mb-4">Developer-first</div>
+          <h2 class="mb-6">Built for developers</h2>
+          <p class="mb-6">Designed to be easy to use and delightful to integrate. Our APIs are simple and consistent, making it easy to build and scale.</p>
+          <button class="btn btn-primary">View documentation →</button>
+        </div>
+        <div class="code-block">
+// Create a payment intent<br>
+const paymentIntent = await stripe<br>
+  .paymentIntents.create({<br>
+    amount: 2000,<br>
+    currency: 'usd',<br>
+    payment_method_types: ['card'],<br>
+  });<br>
+<br>
+console.log(paymentIntent.client_secret);
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section">
+    <div class="container">
+      <div class="card-elevated text-center" style="padding: var(--space-16);">
+        <h2 class="mb-4">Ready to get started?</h2>
+        <p class="mb-8">Join millions of businesses that trust Stripe.</p>
+        <div>
+          <input type="email" placeholder="Email address" class="input" style="max-width: 400px; display: inline-block; margin-right: var(--space-4);">
+          <button class="btn btn-primary btn-large">Get started</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>
