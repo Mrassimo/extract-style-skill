@@ -1,0 +1,227 @@
+/**
+ * Design Tokens - [Site Name]
+ * Extracted from: [URL]
+ * Date: [DATE]
+ *
+ * Usage: Import this file into your project to use the design system
+ * <link rel="stylesheet" href="design-tokens.css">
+ */
+
+:root {
+  /* ===========================
+     COLOURS
+     =========================== */
+
+  /* Primary Colours */
+  --color-primary: #000000;
+  --color-primary-hover: #111111;
+  --color-primary-light: #333333;
+  --color-primary-dark: #000000;
+
+  --color-secondary: #666666;
+  --color-secondary-hover: #777777;
+
+  --color-accent: #0099ff;
+  --color-accent-hover: #0088ee;
+
+  /* Text Colours */
+  --color-text-heading: #000000;
+  --color-text-body: #333333;
+  --color-text-muted: #666666;
+  --color-text-disabled: #999999;
+  --color-text-inverse: #ffffff;
+
+  /* Background Colours */
+  --color-bg-primary: #ffffff;
+  --color-bg-secondary: #f8f8f8;
+  --color-bg-surface: #ffffff;
+  --color-bg-elevated: #ffffff;
+
+  /* Border Colours */
+  --color-border-light: #e0e0e0;
+  --color-border-medium: #cccccc;
+  --color-border-dark: #999999;
+
+  /* Semantic Colours */
+  --color-success: #00cc66;
+  --color-success-light: #e6f9f0;
+  --color-error: #ff3333;
+  --color-error-light: #ffe6e6;
+  --color-warning: #ffaa00;
+  --color-warning-light: #fff4e6;
+  --color-info: #0099ff;
+  --color-info-light: #e6f4ff;
+
+  /* ===========================
+     TYPOGRAPHY
+     =========================== */
+
+  /* Font Families */
+  --font-primary: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-secondary: Georgia, Times, "Times New Roman", serif;
+  --font-mono: "Courier New", Courier, monospace;
+
+  /* Font Sizes */
+  --font-size-h1: 3rem;        /* 48px */
+  --font-size-h2: 2.25rem;     /* 36px */
+  --font-size-h3: 1.875rem;    /* 30px */
+  --font-size-h4: 1.5rem;      /* 24px */
+  --font-size-h5: 1.25rem;     /* 20px */
+  --font-size-h6: 1.125rem;    /* 18px */
+  --font-size-body-lg: 1.125rem; /* 18px */
+  --font-size-body: 1rem;      /* 16px */
+  --font-size-body-sm: 0.875rem; /* 14px */
+  --font-size-caption: 0.75rem;  /* 12px */
+
+  /* Font Weights */
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-black: 900;
+
+  /* Line Heights */
+  --line-height-tight: 1.2;
+  --line-height-snug: 1.4;
+  --line-height-normal: 1.6;
+  --line-height-relaxed: 1.8;
+  --line-height-loose: 2;
+
+  /* Letter Spacing */
+  --letter-spacing-tight: -0.02em;
+  --letter-spacing-normal: 0;
+  --letter-spacing-wide: 0.01em;
+  --letter-spacing-wider: 0.05em;
+
+  /* ===========================
+     SPACING
+     =========================== */
+
+  --spacing-xs: 0.25rem;   /* 4px */
+  --spacing-sm: 0.5rem;    /* 8px */
+  --spacing-md: 1rem;      /* 16px */
+  --spacing-lg: 1.5rem;    /* 24px */
+  --spacing-xl: 2rem;      /* 32px */
+  --spacing-2xl: 3rem;     /* 48px */
+  --spacing-3xl: 4rem;     /* 64px */
+  --spacing-4xl: 6rem;     /* 96px */
+
+  /* ===========================
+     LAYOUT
+     =========================== */
+
+  /* Container Widths */
+  --container-sm: 640px;
+  --container-md: 768px;
+  --container-lg: 1024px;
+  --container-xl: 1280px;
+  --container-2xl: 1536px;
+
+  /* Breakpoints (for reference in media queries) */
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
+
+  /* Z-Index Layers */
+  --z-index-dropdown: 1000;
+  --z-index-sticky: 1020;
+  --z-index-fixed: 1030;
+  --z-index-modal-backdrop: 1040;
+  --z-index-modal: 1050;
+  --z-index-popover: 1060;
+  --z-index-tooltip: 1070;
+
+  /* ===========================
+     VISUAL EFFECTS
+     =========================== */
+
+  /* Shadows */
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 20px rgba(0, 0, 0, 0.15);
+  --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.2);
+  --shadow-2xl: 0 25px 50px rgba(0, 0, 0, 0.25);
+
+  /* Border Radius */
+  --radius-xs: 0.125rem;   /* 2px */
+  --radius-sm: 0.25rem;    /* 4px */
+  --radius-md: 0.5rem;     /* 8px */
+  --radius-lg: 0.75rem;    /* 12px */
+  --radius-xl: 1rem;       /* 16px */
+  --radius-2xl: 1.5rem;    /* 24px */
+  --radius-full: 9999px;   /* Pills, circles */
+
+  /* Borders */
+  --border-width-thin: 1px;
+  --border-width-medium: 2px;
+  --border-width-thick: 4px;
+
+  /* Opacity */
+  --opacity-disabled: 0.5;
+  --opacity-hover: 0.8;
+  --opacity-subtle: 0.6;
+
+  /* ===========================
+     TRANSITIONS & ANIMATIONS
+     =========================== */
+
+  /* Timing Functions */
+  --ease-linear: linear;
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Durations */
+  --duration-instant: 0.1s;
+  --duration-fast: 0.2s;
+  --duration-base: 0.3s;
+  --duration-slow: 0.5s;
+
+  /* Common Transitions */
+  --transition-colors: color var(--duration-fast) var(--ease-in-out),
+                       background-color var(--duration-fast) var(--ease-in-out),
+                       border-color var(--duration-fast) var(--ease-in-out);
+  --transition-transform: transform var(--duration-fast) var(--ease-in-out);
+  --transition-opacity: opacity var(--duration-fast) var(--ease-in-out);
+  --transition-all: all var(--duration-fast) var(--ease-in-out);
+}
+
+/* ===========================
+   UTILITY CLASSES
+   =========================== */
+
+/* Apply font families */
+.font-primary { font-family: var(--font-primary); }
+.font-secondary { font-family: var(--font-secondary); }
+.font-mono { font-family: var(--font-mono); }
+
+/* Apply text colours */
+.text-heading { color: var(--color-text-heading); }
+.text-body { color: var(--color-text-body); }
+.text-muted { color: var(--color-text-muted); }
+.text-primary { color: var(--color-primary); }
+
+/* Apply backgrounds */
+.bg-primary { background-color: var(--color-bg-primary); }
+.bg-secondary { background-color: var(--color-bg-secondary); }
+.bg-surface { background-color: var(--color-bg-surface); }
+
+/* Apply shadows */
+.shadow-sm { box-shadow: var(--shadow-sm); }
+.shadow-md { box-shadow: var(--shadow-md); }
+.shadow-lg { box-shadow: var(--shadow-lg); }
+
+/* Apply border radius */
+.rounded-sm { border-radius: var(--radius-sm); }
+.rounded-md { border-radius: var(--radius-md); }
+.rounded-lg { border-radius: var(--radius-lg); }
+.rounded-full { border-radius: var(--radius-full); }
+
+/* Apply transitions */
+.transition-colors { transition: var(--transition-colors); }
+.transition-transform { transition: var(--transition-transform); }
+.transition-all { transition: var(--transition-all); }

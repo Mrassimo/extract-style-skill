@@ -1,0 +1,119 @@
+{
+  "version": "2.1.0",
+  "extraction": {
+    "timeout": 30000,
+    "maxRetries": 3,
+    "retryDelay": 1000
+  },
+  "refinement": {
+    "maxIterations": 3,
+    "accuracyThreshold": 0.85,
+    "improvementThreshold": 0.05,
+    "enableByDefault": true
+  },
+  "screenshot": {
+    "timeout": 30000,
+    "delay": 2000,
+    "width": 1200,
+    "height": 800,
+    "deviceScaleFactor": 2,
+    "format": "png",
+    "quality": 90
+  },
+  "validation": {
+    "colorSystem": {
+      "minimumColors": 3,
+      "maximumColors": 20,
+      "requiresPrimary": true,
+      "requiresSecondary": true,
+      "requiresNeutral": true
+    },
+    "typography": {
+      "minimumFonts": 1,
+      "minimumFontSizes": 3,
+      "minimumFontWeights": 2,
+      "requiresSystemFonts": true
+    },
+    "spacing": {
+      "minimumValues": 3,
+      "consistencyThreshold": 0.7,
+      "prefersBase8": true,
+      "allowsRem": true,
+      "allowsEm": true
+    },
+    "components": {
+      "minimumConfidence": 0.6,
+      "requiresStates": false,
+      "minimumTypes": 2
+    }
+  },
+  "parsing": {
+    "css": {
+      "useASTFallback": true,
+      "enableVariableResolution": true,
+      "handleNestedCSS": false,
+      "maxFileSize": 1048576,
+      "enableSourceMaps": false
+    },
+    "html": {
+      "maxDepth": 50,
+      "ignoreComments": true,
+      "preserveWhitespace": false,
+      "minifyOutput": true
+    }
+  },
+  "output": {
+    "defaultPath": "./style",
+    "filenameTemplate": "{site}-{date}",
+    "dateFormat": "YYYY-MM-DD",
+    "compression": {
+      "enabled": false,
+      "level": 6
+    },
+    "formats": {
+      "html": true,
+      "css": true,
+      "markdown": true,
+      "json": true
+    }
+  },
+  "performance": {
+    "maxConcurrentRequests": 5,
+    "requestTimeout": 15000,
+    "enableCaching": true,
+    "cacheExpiry": 3600000,
+    "maxMemoryUsage": 512
+  },
+  "security": {
+    "allowExternalResources": true,
+    "validateURLs": true,
+    "allowedProtocols": ["http", "https"],
+    "blockedDomains": [],
+    "userAgent": "Extract-Style-Skill/2.1.0"
+  },
+  "api": {
+    "rateLimit": {
+      "enabled": true,
+      "maxRequestsPerMinute": 60,
+      "maxBurst": 10
+    },
+    "keys": {
+      "screenshotone": {
+        "required": false,
+        "envVar": "SCREENSHOTONE_API_KEY"
+      },
+      "hcti": {
+        "required": false,
+        "envVar": "HCTI_API_KEY"
+      }
+    }
+  },
+  "logging": {
+    "level": "info",
+    "enableConsole": true,
+    "enableFile": false,
+    "logPath": "./logs",
+    "maxLogSize": 10485760,
+    "maxLogFiles": 5
+  }
+}

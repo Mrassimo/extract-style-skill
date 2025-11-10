@@ -1,0 +1,52 @@
+{
+  "name": "extract-style-skill",
+  "version": "2.1.0",
+  "description": "Claude Code skill for extracting high-fidelity design systems from websites",
+  "main": "claude-skill.js",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "lint": "eslint scripts/ tests/",
+    "start": "node claude-skill.js"
+  },
+  "keywords": [
+    "claude-code",
+    "skill",
+    "design-system",
+    "css-extraction",
+    "aijson",
+    "style-guide"
+  ],
+  "author": "Extract Style Skill",
+  "license": "MIT",
+  "dependencies": {
+    "css-tree": "^2.3.1"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "eslint": "^8.57.0"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "collectCoverageFrom": [
+      "scripts/**/*.js",
+      "claude-skill.js",
+      "!scripts/phase-1-extraction.js", // Integration tests would be needed for these
+      "!scripts/phase-2-analysis.js",
+      "!scripts/phase-3-refinement.js",
+      "!scripts/extract-style-orchestrator.js"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 80,
+        "functions": 80,
+        "lines": 80,
+        "statements": 80
+      }
+    }
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
